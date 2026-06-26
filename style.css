@@ -928,17 +928,45 @@ body:has(button:hover) .cursor {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 120px;
-  height: 120px;
-  z-index: 5;
+
+  width: 220px;
+  height: 220px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 10;
 }
 
 .orbit-center-glow {
   position: absolute;
-  inset: -30px;
+  inset: -35px;
+
   border-radius: 50%;
-  background: radial-gradient(ellipse, rgba(0, 245, 255, 0.2) 0%, transparent 70%);
-  animation: orbit-glow 4s ease-in-out infinite;
+
+  background: radial-gradient(
+    circle,
+    rgba(0, 245, 255, 0.35) 0%,
+    rgba(124, 58, 237, 0.18) 45%,
+    transparent 75%
+  );
+
+  filter: blur(22px);
+
+  animation: orbitPulse 4s ease-in-out infinite;
+}
+
+@keyframes orbitPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
 }
 
 @keyframes orbit-glow {
@@ -947,12 +975,19 @@ body:has(button:hover) .cursor {
 }
 
 .orbit-avatar {
-  width: 120px;
-  height: 120px;
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
   border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid rgba(0, 245, 255, 0.3);
-  filter: drop-shadow(0 0 20px rgba(0, 245, 255, 0.3));
+
+  border: 3px solid rgba(0, 245, 255, 0.4);
+
+  box-shadow:
+    0 0 25px rgba(0, 245, 255, 0.45),
+    0 0 60px rgba(0, 245, 255, 0.25),
+    0 0 100px rgba(124, 58, 237, 0.18);
+
+  transition: all 0.4s ease;
 }
 
 .orbit-ring {
@@ -962,6 +997,13 @@ body:has(button:hover) .cursor {
   border-radius: 50%;
   border: 1px solid rgba(0, 245, 255, 0.12);
   transform: translate(-50%, -50%);
+}
+.orbit-ring {
+  border: 1px solid rgba(0, 245, 255, 0.18);
+
+  box-shadow:
+    0 0 20px rgba(0, 245, 255, 0.08),
+    inset 0 0 15px rgba(0, 245, 255, 0.05);
 }
 
 .orbit-ring-1 { width: 54%; height: 54%; }
@@ -979,28 +1021,58 @@ body:has(button:hover) .cursor {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+   animation: techFloat 3s ease-in-out infinite;
+}
+
+@keyframes techFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes floatLogo {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
 .orbit-logo-inner {
+  width: auto;
+  height: auto;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: rgba(10, 15, 42, 0.9);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  font-size: 1.4rem;
-  transition: all 0.25s;
-  backdrop-filter: blur(8px);
+
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+
+  transition: all 0.35s ease;
 }
 
-.orbit-logo:hover .orbit-logo-inner {
-  width: 52px;
-  height: 52px;
-  border-color: var(--border-hover);
-  box-shadow: var(--glow-cyan);
-  background: rgba(0, 245, 255, 0.08);
+.orbit-logo-inner img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+
+  transition: all 0.35s ease;
+
+  filter: drop-shadow(0 0 4px rgba(0, 245, 255, 0.15));
+}
+.orbit-logo:hover img {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 12px #00f5ff);
+    transition: 0.3s ease;
 }
 
 /* Tech legend */

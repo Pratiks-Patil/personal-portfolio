@@ -305,44 +305,36 @@ const prefersReducedMotion = () =>
   // Tech data — emoji icons for zero-dependency logo display
   // Replace emoji with <img src="assets/logos/..."> once you have SVGs
   const techs = [
-    // Ring 1 (inner) — Cloud & DevOps
-    { name: 'AWS',        icon: '☁️',  ring: 1, color: 'var(--gold)',   angle: 0 },
-    { name: 'Azure',      icon: '🔷',  ring: 1, color: 'var(--cyan)',   angle: 72 },
-    { name: 'Docker',     icon: '🐳',  ring: 1, color: 'var(--cyan)',   angle: 144 },
-    { name: 'Kubernetes', icon: '⎈',   ring: 1, color: 'var(--violet-l)', angle: 216 },
-    { name: 'Linux',      icon: '🐧',  ring: 1, color: 'var(--gold)',   angle: 288 },
+  // Ring 1 - Cloud & DevOps
+  { name: "AWS",        icon: "assets/logos/aws.png",        ring: 1, angle: 0 },
+  { name: "Jenkins",      icon: "assets/logos/jenkins.png",      ring: 1, angle: 72 },
+  { name: "Docker",     icon: "assets/logos/docker.png",     ring: 1, angle: 144 },
+  { name: "Kubernetes", icon: "assets/logos/kubernetes.png", ring: 1, angle: 216 },
+  { name: "Linux",      icon: "assets/logos/linux.png",      ring: 1, angle: 288 },
 
-    // Ring 2 (middle) — Programming & Frameworks
-    { name: 'Python',     icon: '🐍',  ring: 2, color: 'var(--violet-l)', angle: 0 },
-    { name: 'C++',        icon: '⚡',  ring: 2, color: 'var(--cyan)',   angle: 45 },
-    { name: 'HTML5',      icon: '🟠',  ring: 2, color: 'var(--gold)',   angle: 90 },
-    { name: 'CSS3',       icon: '🎨',  ring: 2, color: 'var(--violet-l)', angle: 135 },
-    { name: 'Django',     icon: '🌿',  ring: 2, color: 'var(--cyan)',   angle: 180 },
-    { name: 'Flask',      icon: '🍶',  ring: 2, color: 'var(--muted)',  angle: 225 },
-    { name: 'Jenkins',    icon: '🔧',  ring: 2, color: 'var(--gold)',   angle: 270 },
-    { name: 'Git',        icon: '🌿',  ring: 2, color: 'var(--pink)',   angle: 315 },
+  // Ring 2 - Languages & Frameworks
+  { name: "Python", icon: "assets/logos/python.png", ring: 2, angle: 0 },
+  { name: "C++",    icon: "assets/logos/cpp.png",    ring: 2, angle: 72 },
+  { name: "HTML5",  icon: "assets/logos/html5.png",   ring: 2, angle: 144 },
+  { name: "CSS3",   icon: "assets/logos/css3.png",    ring: 2, angle: 216 },
+  { name: "Django",  icon: "assets/logos/django.png",  ring: 2, angle: 288 },
 
-    // Ring 3 (outer) — Databases, AI, Tools
-    { name: 'MySQL',          icon: '🗄️',  ring: 3, color: 'var(--cyan)',   angle: 0 },
-    { name: 'MongoDB',        icon: '🍃',  ring: 3, color: 'var(--gold)',   angle: 30 },
-    { name: 'Oracle',         icon: '🔴',  ring: 3, color: 'var(--pink)',   angle: 60 },
-    { name: 'VS Code',        icon: '💻',  ring: 3, color: 'var(--cyan)',   angle: 90 },
-    { name: 'Jupyter',        icon: '📓',  ring: 3, color: 'var(--gold)',   angle: 120 },
-    { name: 'Gen AI',         icon: '🤖',  ring: 3, color: 'var(--violet-l)', angle: 150 },
-    { name: 'NLP',            icon: '💬',  ring: 3, color: 'var(--pink)',   angle: 180 },
-    { name: 'Data Analysis',  icon: '📊',  ring: 3, color: 'var(--cyan)',   angle: 210 },
-    { name: 'GitHub',         icon: '🐙',  ring: 3, color: 'var(--muted)', angle: 240 },
-    { name: 'Terraform',      icon: '🏗️',  ring: 3, color: 'var(--violet-l)', angle: 270 },
-    { name: 'REST APIs',      icon: '🔗',  ring: 3, color: 'var(--gold)',   angle: 300 },
-    { name: 'Colab',          icon: '🔬',  ring: 3, color: 'var(--pink)',   angle: 330 },
-  ];
+  // Ring 3 - Tools & Databases
+  { name: "Git",        icon: "assets/logos/git.png",        ring: 3, angle: 0 },
+  { name: "GitHub",     icon: "assets/logos/github.png",     ring: 3, angle: 51.5 },
+  { name: "Oracle",     icon: "assets/logos/oracle.png",     ring: 3, angle: 103 },
+  { name: "SQLite",      icon: "assets/logos/sqlite.png",      ring: 3, angle: 154.5 },
+  { name: "VS Code",    icon: "assets/logos/vscode.png",     ring: 3, angle: 206 },
+  { name: "Colab",  icon: "assets/logos/colab.png",  ring: 3, angle: 257.5 },
+  { name: "Mongodb",  icon: "assets/logos/mongodb.png",  ring: 3, angle: 309 }
+];
 
   // Ring config: radius as fraction of container width, angular speed (deg/s)
   const rings = {
-    1: { radiusFrac: 0.27, speed: 12 },
-    2: { radiusFrac: 0.38, speed: 8  },
-    3: { radiusFrac: 0.49, speed: 5  },
-  };
+  1: { radiusFrac: 0.22, speed: 12 },
+  2: { radiusFrac: 0.33, speed: 8 },
+  3: { radiusFrac: 0.44, speed: 5 },
+};
 
   // Build DOM elements
   const logoEls = techs.map(tech => {
@@ -352,9 +344,15 @@ const prefersReducedMotion = () =>
     el.setAttribute('aria-label', tech.name);
 
     const inner = document.createElement('div');
-    inner.className = 'orbit-logo-inner';
-    inner.textContent = tech.icon;
-    inner.style.borderColor = `color-mix(in srgb, ${tech.color} 30%, transparent)`;
+    inner.className = "orbit-logo-inner";
+
+const img = document.createElement("img");
+img.src = tech.icon;
+img.alt = tech.name;
+img.draggable = false;
+img.loading = "lazy";
+
+inner.appendChild(img);
 
     el.appendChild(inner);
     container.appendChild(el);
@@ -427,7 +425,8 @@ const prefersReducedMotion = () =>
       const x   = cx + rad * Math.cos(a);
       const y   = cy + rad * Math.sin(a);
 
-      item.el.style.transform = `translate(${x - 23}px, ${y - 23}px)`;
+      item.el.style.left = `${x - 26}px`;
+item.el.style.top  = `${y - 26}px`;
     });
 
     requestAnimationFrame(animate);
@@ -442,7 +441,8 @@ const prefersReducedMotion = () =>
       const a   = (item.angle * Math.PI) / 180;
       const cx  = systemSize / 2;
       const cy  = systemSize / 2;
-      item.el.style.transform = `translate(${cx + rad * Math.cos(a) - 23}px, ${cy + rad * Math.sin(a) - 23}px)`;
+      item.el.style.left = `${cx + rad * Math.cos(a) - 26}px`;
+item.el.style.top  = `${cy + rad * Math.sin(a) - 26}px`;
     });
   }
 })();
