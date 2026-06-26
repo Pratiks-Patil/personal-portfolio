@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pratik – Cloud Engineer, DevOps Enthusiast, Python Developer. Explore my digital workspace." />
+  <title>Pratik's — Digital Workspace</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+/>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       BACKGROUND CANVAS
+  ═══════════════════════════════════════════ -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- ═══════════════════════════════════════════
+       CURSOR
+  ═══════════════════════════════════════════ -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Pratik – Home">
+        <span class="logo-bracket">&lt;</span>Pratik<span class="logo-bracket">/&gt;</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#hero"       class="nav-link active" data-section="hero">Home</a></li>
+        <li><a href="#about"      class="nav-link"        data-section="about">Who am I?</a></li>
+        <li><a href="#journey"    class="nav-link"        data-section="journey">Journey</a></li>
+        <li><a href="#techstack"  class="nav-link"        data-section="techstack">Tech Stack</a></li>
+        <li><a href="#projects"   class="nav-link"        data-section="projects">Projects</a></li>
+        <li><a href="#contact"    class="nav-link"        data-section="contact">Contact</a></li>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+        <span class="theme-icon">🌙</span>
+        </button>
+      </ul>
+
+  
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ═══════════════════════════════════════════
+         HERO SECTION
+    ═══════════════════════════════════════════ -->
+    <section class="section hero-section" id="hero" aria-label="Introduction">
+      <div class="hero-inner">
+        <!-- Left: text -->
+        <div class="hero-text">
+          <p class="hero-greeting">
+            <span class="mono-tag">&gt;_</span> Hello, World!
+          </p>
+          <h1 class="hero-name">I'm <span class="name-gradient">Pratik.</span></h1>
+          <div class="hero-role" aria-live="polite">
+            <span class="role-prefix">I build </span>
+            <span class="typing-text" id="typing-text"></span>
+            <span class="typing-cursor" aria-hidden="true">|</span>
+          </div>
+          <p class="hero-intro">
+            Computer Engineering graduate currently pursuing M.Tech at VJTI, Mumbai. Passionate about Cloud Computing, DevOps, AWS, Linux, Python, and building scalable software solutions through hands-on projects.
+          </p>
+          <div class="hero-cta">
+            <a href="#contact" class="btn btn-primary">
+              <span>Get in Touch</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            
+            <a href="assets/resume.pdf" class="btn btn-secondary" download aria-label="Download Resume PDF">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M4 7l4 4 4-4M2 13h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Resume
+            </a>
+          </div>
+          <div class="hero-social">
+
+            <!-- GitHub -->
+            <a href="https://github.com/Pratiks-Patil" target="_blank" rel="noopener" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/pratikpatil03" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/pratiik__patil/" target="_blank" rel="noopener" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+
+            <!-- X (Twitter) -->
+            <a href="https://x.com/PratikPatil_03" target="_blank" rel="noopener" aria-label="X">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+
+            <!-- Email -->
+            <a href="mailto:pratikspatil372@gmail.com" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+
+
+          </div>
+        </div>
+
+        <!-- Right: avatar -->
+        <div class="hero-avatar-wrap" aria-hidden="true">
+          <div class="avatar-glow-ring"></div>
+          <div class="avatar-glow-ring ring-2"></div>
+          <img
+            src="assets/avatar-hero.png"
+            alt=""
+            class="avatar-img hero-avatar"
+            aria-hidden="true"
+            loading="eager"
+          />
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            Available for opportunities
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll hint -->
+      <div class="scroll-hint" aria-hidden="true">
+        <span>scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         ABOUT SECTION
+    ═══════════════════════════════════════════ -->
+    <section class="section about-section" id="about" aria-label="About Pratik">
+      <div class="section-inner about-inner">
+        <!-- Avatar left -->
+        <div class="about-avatar-wrap reveal" aria-hidden="true">
+          <div class="about-avatar-bg"></div>
+          <img
+            src="assets/avatar-about.png"
+            alt=""
+            class="avatar-img about-avatar"
+            aria-hidden="true"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Text right -->
+        <div class="about-content reveal reveal-right">
+          <p class="section-eyebrow">// WHO I AM</p>
+          <h2 class="section-title">Building things. Learning fast.<br /><em>Having fun doing it.</em></h2>
+
+          <div class="about-body">
+            <p>
+                Hey! I'm <strong>Pratik Patil</strong>, currently pursuing my
+                <strong>M.Tech in Computer Engineering at VJTI, Mumbai.</strong>
+                I'm someone who genuinely enjoys exploring technology and learning by building real projects.
+            </p>
+            <p>
+              I enjoy trying out new ideas, building side projects, and exploring different areas of computer science while continuously learning and improving along the way.
+              </p>
+            <p>
+                Outside of coding,  I also have a passion for photography, where I enjoy capturing moments and expressing creativity through the lens.
+            I enjoy collaborating with people, taking on leadership roles,. My goal is simple — keep building, keep improving,and have fun along the way. 🚀
+            </p>
+          </div>
+
+          <div class="interests-grid" role="list" aria-label="Interests">
+            <div class="interest-pill" role="listitem">
+              <span class="i-icon">☁</span> Cloud Computing
+            </div>
+            <div class="interest-pill" role="listitem">
+              <span class="i-icon">⚙</span> DevOps
+            </div>
+            <div class="interest-pill" role="listitem">
+              <span class="i-icon">🐍</span> Python
+            </div>
+            <div class="interest-pill" role="listitem">
+              <span class="i-icon">🐧</span> Linux
+            </div>
+            <div class="interest-pill" role="listitem">
+              <span class="i-icon">🤖</span> Automation
+            </div>
+            <div class="interest-pill" role="listitem">
+              <span class="i-icon">📷</span> Photography
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
