@@ -4,7 +4,7 @@
 
 ### 🚀 Building Intelligent Solutions with Cloud, DevOps & Innovation
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-Live-00CFFF?style=for-the-badge)](#)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Live-00CFFF?style=for-the-badge)]((https://pratikspatil.netlify.app/))
 [![GitHub](https://img.shields.io/badge/GitHub-Pratiks--Patil-181717?style=for-the-badge&logo=github)](https://github.com/Pratiks-Patil)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Pratik%20Patil-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/pratikpatil03)
 
